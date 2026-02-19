@@ -2,9 +2,9 @@
 
 from pwn import *
 
-exe = ELF("./app_patched")
-libc = ELF("./libc.so.6")
-ld = ELF("./ld-2.23.so")
+exe = ELF("./app")
+#libc = ELF("./libc.so.6")
+#ld = ELF("./ld-2.23.so")
 
 context.binary = exe
 
@@ -20,7 +20,7 @@ def conn():
         if args.GDB:
             gdb.attach(r, gs)
     else:
-        r = remote("pwnchall.hackena.io", 443, ssl=True)
+        r = remote("pwn-zoroblindpath.hackena.io", 443, ssl=True)
 
     return r
 
